@@ -3,6 +3,7 @@ package application;
 import java.util.Date;
 import java.util.List;
 
+import db.DB;
 import model.dao.DAOFactory;
 import model.dao.SellerDAO;
 import model.entities.Department;
@@ -32,10 +33,10 @@ public class Program {
 			System.out.println(s);
 		}
 		
-//		System.out.println("\n--- TEST 4: insert seller ---");
-//		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dep);
-//		sellerDAO.insert(newSeller);
-//		System.out.println(newSeller);
+		System.out.println("\n--- TEST 4: insert seller ---");
+		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dep);
+		sellerDAO.insert(newSeller);
+		System.out.println(newSeller);
 
 		System.out.println("\n--- TEST 5: update seller ---");
 		seller = sellerDAO.findById(1);
@@ -47,6 +48,8 @@ public class Program {
 		System.out.println("\n--- TEST 6: delete seller ---");
 		sellerDAO.deleteById(11);
 		System.out.println("Seller deleted id: " + 11);
+		
+		DB.closeConnection();
 
 	}
 
